@@ -1,4 +1,4 @@
-# Dotnet 6 Minimum Api running on AWS Lambda
+# Dotnet 6 Minimal API running on AWS Lambda
 
 ### Run locally,
 
