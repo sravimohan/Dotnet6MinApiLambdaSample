@@ -10,6 +10,9 @@
 - ```sam build```
 - ```sam deploy --guided```
 
+### Reference
+- https://aws.amazon.com/blogs/compute/introducing-the-net-6-runtime-for-aws-lambda/
+
 ### Demo Link
 
 https://upmjb1g5xj.execute-api.ap-southeast-2.amazonaws.com/
