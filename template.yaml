@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  Sample SAM Template for Dotnet6MinApiLambdaSample
+
+Globals:
+  Function:
+    Timeout: 100
+
+Resources:
+  Dotnet6MinApiLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: .NET 6 Min Api in Lambda Sample
+      CodeUri: ./src/Dotnet6MinApiLambdaSample/
+      Handler: Dotnet6MinApiLambdaSample
+      Runtime: dotnet6
+      MemorySize: 1024
+      Events:
+        ProxyResource:
+          Type: HttpApi
+          Properties:
+            PayloadFormatVersion: "2.0"
+            Path: /{proxy+}
+            Method: ANY
+        RootResource:
+          PayloadFormatVersion: "2.0"
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: ANY
+Outputs:
+  WebEndpoint:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/"
